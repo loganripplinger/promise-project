@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
-import './app.css';
+import { AppWrapper } from './styles';
 import ReactImage from './react.png';
+import Event from './components/Event/Event.js';
 
 export default class App extends Component {
-  state = { username: null };
+  state = { events: null };
 
   componentDidMount() {
-    fetch('/api/getUsername')
+    fetch('/api/events')
       .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
+      .then(data => {
+        data.sort((a, b) => b.datetime - a.datetime)
+        // TODO find now
+        this.setState({ events: data })
+      });
+      // TODO on the minute rerender
   }
 
   render() {
-    const { username } = this.state;
+    const { events } = this.state;
+    
     return (
-      <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        <img src={ReactImage} alt="react" />
-      </div>
+      <AppWrapper>
+        {events ? events.map((event) => <Event key={event.id} event={event} />)
+                : <h1>Loading.. please wait!</h1>}
+      </AppWrapper>
     );
   }
 }

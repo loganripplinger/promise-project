@@ -29,7 +29,7 @@ class Database {
   }
 
   getNewID() {
-    // lol this is super dumb, dont do this. But DEMMMOOOOOO
+    // This is super dumb, dont do this.
     // O(n) when it should be O(1)
     let largestInt = 0
     this.events.forEach(event => {
