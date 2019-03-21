@@ -22,9 +22,9 @@ router.put('/', function (req, res, next) {
   newCaseManagerAppointment = CaseManagerAppointment.createNewFromJSON(newCaseManagerAppointmentJSON)
   db.addEvent(newCaseManagerAppointment)
 
+  // return object to client with all data
   newCaseManagerAppointmentJSON.id = newCaseManagerAppointment.getID()
   newCaseManagerAppointmentJSON.type = newCaseManagerAppointment.getType()
-  // pretend we converted object to json
   res.status(200).json(newCaseManagerAppointmentJSON)
 })
 

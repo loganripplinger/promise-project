@@ -16,7 +16,7 @@ router.put('/', function (req, res, next) {
 
   // Sanitize
   // newCourtDate.sanitize()
-  console.warn('Data is not being sanitized. Do not use in production until implemented.')
+  console.warn('Unsanitized is being put into the database. Do not use in production until sanitization is implemented.')
 
   // create and Insert into db
   newCourtDate = CourtDate.createNewFromJSON(newCourtDateJSON)

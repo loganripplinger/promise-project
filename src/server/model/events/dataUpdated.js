@@ -17,7 +17,7 @@ class DataUpdated extends BaseEvent {
     db = Database.getDb()
     const id = db.getNewID()
     const datetime = object.datetime
-    return new Reminder(id, datetime)
+    return new DataUpdated(id, datetime)
   }
 }
 
