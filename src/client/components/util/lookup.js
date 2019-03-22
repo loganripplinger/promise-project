@@ -1,27 +1,31 @@
-import CourtDate from '../CourtDate/CourtDate'
-import Reminder from '../Reminder/Reminder'
-import CaseManangerAppointment from '../CaseManagerAppointment/CaseManagerAppointment'
-import DataUpdated from '../DataUpdated/DataUpdated'
-import { faCalendar, faCalendarCheck, faCalendarTimes } from '@fortawesome/free-regular-svg-icons'
+import CourtDate from "../CourtDate/CourtDate";
+import Reminder from "../Reminder/Reminder";
+import CaseManangerAppointment from "../CaseManagerAppointment/CaseManagerAppointment";
+import DataUpdated from "../DataUpdated/DataUpdated";
+import {
+  faCalendar,
+  faCalendarCheck,
+  faCalendarTimes
+} from "@fortawesome/free-regular-svg-icons";
 
 export const eventComponentLookup = {
   'court-date': CourtDate,
   'reminder': Reminder,
   'case-manager-appointment': CaseManangerAppointment,
   'client-data-updated': DataUpdated
-}
+};
 
 export const iconLookup = {
-  'true': {
+  true: {
     icon: faCalendarCheck,
-    color: 'green'
+    color: "green"
   },
-  'false': {
+  false: {
     icon: faCalendarTimes,
-    color: 'red'
+    color: "red"
   },
-  'undefined': {
+  undefined: {
     icon: faCalendar,
-    color: 'blue'
+    color: "blue"
   }
-}
+};

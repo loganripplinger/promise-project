@@ -2,13 +2,12 @@ module.exports = {
   validate: (object, keys) => {
     // Can be rewritten into a single some/for loop
     const result = keys.map(key => {
-      // console.log(`${object}.hasOwnProperty(${key}) => ${object.hasOwnProperty(key)}`)
       if (object.hasOwnProperty(key)) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
-    })
-    return !result.some(el => el === false)
+    });
+    return !result.some(el => el === false);
   }
-}
+};

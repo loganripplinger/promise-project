@@ -1,7 +1,7 @@
-import moment from 'moment'
+import moment from "moment";
 
-export const timeFormatter = (unixTime) => {
-  return moment(unixTime).format('MM/DD/YYYY hh:mm A');
-}
+const timeFormatter = (unixTime) => {
+  return moment(unixTime).format("MM/DD/YYYY hh:mm A");
+};
 
-export default timeFormatter
+export default timeFormatter;

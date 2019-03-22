@@ -1,22 +1,19 @@
-import React from 'react';
-import Event from '../Event/Event'
-import { Container } from '../../styles'
-import { faEdit } from '@fortawesome/free-regular-svg-icons'
+import React from "react";
+import Event from "../Event/Event";
+import { faEdit } from "@fortawesome/free-regular-svg-icons";
 
-export default class DataUpdated extends React.Component {
-  render() {
-    const headerText = 'Client Data Updated'
+const DataUpdated = ({datetime, now, nowIsInFuture}) => {
+  const headerText = "Client Data Updated";
 
-    return (
-      <div>
-        <Event
-          datetime={this.props.datetime}
-          icon={faEdit}
-          header={headerText}
-          now={this.props.now}
-          nowIsInFuture={this.props.nowIsInFuture}
-        />
-      </div>
-    )
-  }
+  return (
+      <Event
+        datetime={datetime}
+        icon={faEdit}
+        header={headerText}
+        now={now}
+        nowIsInFuture={nowIsInFuture}
+      />
+  );
 }
+
+export default DataUpdated;

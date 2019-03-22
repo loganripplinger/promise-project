@@ -1,20 +1,17 @@
-import React from 'react';
-import { Container, Time } from '../../styles'
-import { eventComponentLookup } from '../util/lookup'
+import React from "react";
+import { eventComponentLookup } from "../util/lookup";
 
-export default class EventFactory extends React.Component {
-  render() {
-    const Component = eventComponentLookup[this.props.event.type];
+const EventFactory = (props) =>  {
+  const Component = eventComponentLookup[props.event.type];
 
-    return (
-      <div>
-        <Component 
-          event={this.props.event}
-          datetime={this.props.event.datetime}
-          now={this.props.event.now}
-          nowIsInFuture={this.props.event.nowIsInFuture}
-        />
-      </div>
-    )
-  }
+  return (
+      <Component
+        event={props.event}
+        datetime={props.event.datetime}
+        now={props.event.now}
+        nowIsInFuture={props.event.nowIsInFuture}
+      />
+  );
 }
+
+export default EventFactory;

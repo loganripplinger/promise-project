@@ -1,25 +1,25 @@
 // Abstract base class
 class BaseEvent {
   constructor(datetime) {
-    this.type = 'base-event'
-    this.datetime = datetime
+    this.type = "base-event";
+    this.datetime = datetime;
   }
 
   getDatetime() {
-    return this.datetime
-  } 
+    return this.datetime;
+  }
 
   setID(id) {
-    this.id = id
+    this.id = id;
   }
 
   getID() {
-    return this.id
+    return this.id;
   }
 
   getType() {
-    return this.type
+    return this.type;
   }
 }
 
-module.exports = BaseEvent
+module.exports = BaseEvent;

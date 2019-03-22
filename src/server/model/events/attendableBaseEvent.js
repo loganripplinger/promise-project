@@ -1,16 +1,16 @@
-const BaseEvent = require('./baseEvent')
-const validator = require('../util/validator')
+const BaseEvent = require("./baseEvent");
+const validator = require("../util/validator");
 
 // Abstract base class
 class AttendableBaseEvent extends BaseEvent {
   constructor(datetime, keptAppointment) {
-    super(datetime)
-    this.keptAppointment = keptAppointment
+    super(datetime);
+    this.keptAppointment = keptAppointment;
   }
 
   getKeptAppointment() {
-    return this.keptAppointment
+    return this.keptAppointment;
   }
 }
 
-module.exports = AttendableBaseEvent
+module.exports = AttendableBaseEvent;
