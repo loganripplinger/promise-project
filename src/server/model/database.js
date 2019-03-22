@@ -9,11 +9,10 @@ class Database {
     this.users.push(user)
   }
 
-  // removeUser(intID) {}
+  removeUser(intID) {}
 
   addEvent(event) {
-    this.IDs += 1
-    event.setID(this.IDs)
+    event.setID(++this.IDs)
 
     this.events.push(event)
     console.log('\n')
@@ -24,7 +23,7 @@ class Database {
   }
 
   removeEvent(intID) {
-    // time/space O(n). Bad, but this is a demo
+    // time/space O(n). Bad but this is not a feature for the demo
     this.events = this.events.filter(event => event.getID() !== intID)
   }
 
@@ -33,6 +32,7 @@ class Database {
   }
 }
 
+// Singleton pattern
 let db;
 
 module.exports = {

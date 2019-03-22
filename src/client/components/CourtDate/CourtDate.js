@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarTimes } from '@fortawesome/free-regular-svg-icons'
 import { faCalendar } from '@fortawesome/free-regular-svg-icons'
 import { faCalendarCheck } from '@fortawesome/free-regular-svg-icons'
+import timeFormatter from '../util/timeFormatter'
 
 export default class CourtDate extends React.Component {
   // this.props.event.type
@@ -16,7 +17,7 @@ export default class CourtDate extends React.Component {
 
     const calIcon = iconLookup[this.props.event.keptAppointment]
 
-    const datetime = this.props.event.datetime
+    const datetime = timeFormatter(this.props.event.datetime)
 
     return (
       <Container>

@@ -3,12 +3,15 @@
 ## Requirements
 
 ## Features
-React frontend from scratch
-Nodejs RESTful API from scratch
-Object model in Nodejs written from scratch
+All was written from scratch.
+React frontend
+Nodejs RESTful API
+Singleton object model in Nodejs
 
 ## Note
 Object model is not feature complete and is full of security holes. This is a prototype that was developed as fast as possible.
+
+REST Controller will validate a given object's keys, but will not check the value's type
 
 ## Install
 ```
