@@ -2,7 +2,7 @@ const Reminder = require('../events/reminder')
 const formatter = require('./timeFormatter')
 
 module.exports = {
-  oneDayBeforeCourt: (id, person, objCourtDate) => {
+  oneDayBeforeCourt: (person, objCourtDate) => {
     const oneDay = 5
     const datetime = objCourtDate.getDatetime() - oneDay
     
@@ -10,13 +10,13 @@ module.exports = {
     assistanceMessage = `If you need assistance with transportation, please contact your case manager at ${person.caseManager.number}.`
     message = `${timeLocationMessage} ${assistanceMessage}`
     
-    reminder = new Reminder(id, datetime, objCourtDate, message)
+    reminder = new Reminder(datetime, objCourtDate, message)
     return reminder
   },
 
-  courtDateConfirmation: (id, datetime, person, objCourtDate) => {
+  courtDateConfirmation: (datetime, person, objCourtDate) => {
     confirmationMessage = `Hello ${person.name}, this is to confirm that Court Date has been added to your schedule for ${formatter.fancyTime(objCourtDate.getDatetime())}. Take care.`
-    reminder = new Reminder(id, datetime, objCourtDate, confirmationMessage)
+    reminder = new Reminder(datetime, objCourtDate, confirmationMessage)
     return reminder
   }
 }

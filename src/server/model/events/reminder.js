@@ -1,10 +1,9 @@
 const BaseEvent = require('./baseEvent')
 const validator = require('../util/validator')
-const Database = require('../database');
 
 class Reminder extends BaseEvent {
-  constructor(id, datetime, referenceEvent, reminderMessage) {
-    super(id, datetime)
+  constructor(datetime, referenceEvent, reminderMessage) {
+    super(datetime)
     this.type = 'reminder'
     this.referenceEvent = referenceEvent
     this.reminderMessage = reminderMessage
@@ -24,12 +23,10 @@ class Reminder extends BaseEvent {
   }
 
   static createNewFromJSON(object) {
-    db = Database.getDb()
-    const id = db.getNewID()
     const datetime = object.datetime
     const referenceEvent = object.referenceEvent
     const reminderMessage = object.reminderMessage
-    return new Reminder(id, datetime, referenceEvent, reminderMessage)
+    return new Reminder(datetime, referenceEvent, reminderMessage)
   }
 }
 

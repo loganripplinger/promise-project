@@ -2,6 +2,7 @@ class Database {
   constructor() {
     this.users = []
     this.events = []
+    this.IDs = 0
   }
 
   addUser(user) {
@@ -11,6 +12,9 @@ class Database {
   // removeUser(intID) {}
 
   addEvent(event) {
+    this.IDs += 1
+    event.setID(this.IDs)
+
     this.events.push(event)
     console.log('\n')
     console.log('\n')
@@ -26,18 +30,6 @@ class Database {
 
   getAllEvents(userID) {
     return this.events
-  }
-
-  getNewID() {
-    // This is super dumb, dont do this.
-    // O(n) when it should be O(1)
-    let largestInt = 0
-    this.events.forEach(event => {
-      if (event.getID() > largestInt) {
-        largestInt = event.getID()
-      }
-    })
-    return largestInt + 1
   }
 }
 

@@ -20,15 +20,13 @@ const populateDatabase = (database) => {
 
   database.addUser(person)
 
-  let id = 0
-
-  const courtDate1 = new CourtDate(++id, 123, undefined, '101 Washington St. Oakland')
-  const courtDateReminder = generateReminders.oneDayBeforeCourt(++id, person, courtDate1)
-  const caseManagerAppointment1 = new CaseManagerAppointment(++id, 100, false)
-  const courtDateCreatedReminder = generateReminders.courtDateConfirmation(++id, 66, person, courtDate1)
-  const courtDate2 = new CourtDate(++id, 50, true, '101 Washington St. Oakland')
-  const clientDataUpdated = new DataUpdated(++id, 40)
-  const caseManagerAppointment2 = new CaseManagerAppointment(++id, 30, true)
+  const courtDate1 = new CourtDate(123, undefined, '101 Washington St. Oakland')
+  const courtDateReminder = generateReminders.oneDayBeforeCourt(person, courtDate1)
+  const caseManagerAppointment1 = new CaseManagerAppointment(100, false)
+  const courtDateCreatedReminder = generateReminders.courtDateConfirmation(66, person, courtDate1)
+  const courtDate2 = new CourtDate(50, true, '101 Washington St. Oakland')
+  const clientDataUpdated = new DataUpdated(40)
+  const caseManagerAppointment2 = new CaseManagerAppointment(30, true)
 
   database.addEvent(courtDate1)
   database.addEvent(courtDateReminder)

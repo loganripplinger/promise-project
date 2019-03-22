@@ -3,8 +3,8 @@ const validator = require('../util/validator')
 
 // Abstract base class
 class AttendableBaseEvent extends BaseEvent {
-  constructor(id, datetime, keptAppointment) {
-    super(id, datetime)
+  constructor(datetime, keptAppointment) {
+    super(datetime)
     this.keptAppointment = keptAppointment
   }
 

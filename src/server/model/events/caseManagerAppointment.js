@@ -3,8 +3,8 @@ const validator = require('../util/validator')
 const Database = require('../database');
 
 class CaseManagerAppointment extends AttendableBaseEvent {
-  constructor(id, datetime, keptAppointment) {
-    super(id, datetime, keptAppointment)
+  constructor(datetime, keptAppointment) {
+    super(datetime, keptAppointment)
     this.type = 'case-manager-appointment'
   }
 
@@ -14,11 +14,9 @@ class CaseManagerAppointment extends AttendableBaseEvent {
   }
 
   static createNewFromJSON(object) {
-    db = Database.getDb()
-    const id = db.getNewID()
     const datetime = object.datetime
     const keptAppointment = object.keptAppointment
-    return new CaseManagerAppointment(id, datetime, keptAppointment)
+    return new CaseManagerAppointment(datetime, keptAppointment)
   }
 }
 

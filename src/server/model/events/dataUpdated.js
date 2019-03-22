@@ -1,10 +1,9 @@
 const BaseEvent = require('./baseEvent')
 const validator = require('../util/validator')
-const Database = require('../database');
 
 class DataUpdated extends BaseEvent {
-  constructor(id, datetime) {
-    super(id, datetime)
+  constructor(datetime) {
+    super(datetime)
     this.type = 'client-data-updated'
   }
 
@@ -14,10 +13,8 @@ class DataUpdated extends BaseEvent {
   }
 
   static createNewFromJSON(object) {
-    db = Database.getDb()
-    const id = db.getNewID()
     const datetime = object.datetime
-    return new DataUpdated(id, datetime)
+    return new DataUpdated(datetime)
   }
 }
 

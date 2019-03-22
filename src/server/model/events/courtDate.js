@@ -1,10 +1,9 @@
 const AttendableBaseEvent = require('./attendableBaseEvent')
 const validator = require('../util/validator')
-const Database = require('../database');
 
 class CourtDate extends AttendableBaseEvent {
-  constructor(id, datetime, keptAppointment, location) {
-    super(id, datetime, keptAppointment)
+  constructor(datetime, keptAppointment, location) {
+    super(datetime, keptAppointment)
     this.type = 'court-date'
     this.location = location
   }
@@ -19,12 +18,10 @@ class CourtDate extends AttendableBaseEvent {
   }
 
   static createNewFromJSON(object) {
-    db = Database.getDb()
-    const id = db.getNewID()
     const datetime = object.datetime
     const keptAppointment = object.keptAppointment
     const location = object.location
-    return new CourtDate(id, datetime, keptAppointment, location)
+    return new CourtDate(datetime, keptAppointment, location)
   }
 }
 
