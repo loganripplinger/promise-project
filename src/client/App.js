@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import './app.css'
+import Button from 'react-bootstrap/Button';
+import AddEventModal from './components/Modal/AddEventModal';
+import './app.css';
 import { AppWrapper } from './styles';
 import ReactImage from './react.png';
 import EventFactory from './components/EventFactory/EventFactory.js';
 import insertNowBarIntoEvents from './components/util/now'
 
 export default class App extends Component {
-  state = { events: null };
+  state = {
+    events: null,
+    modalIsOpen: false
+  };
 
-  componentDidMount() {
+  getAllEvents = () => {
     fetch('/api/events')
       .then(res => res.json())
       .then(eventsData => {
@@ -19,7 +24,16 @@ export default class App extends Component {
 
         this.setState({ events: eventsData });
       });
-      // TODO on the minute rerender
+  }
+
+  componentDidMount() {
+    this.getAllEvents()
+  }
+
+  toggleModal = () => {
+    this.setState({
+      modalIsOpen: !this.state.modalIsOpen
+    });
   }
 
   render() {
@@ -36,6 +50,12 @@ export default class App extends Component {
     return (
       <AppWrapper>
         {showEventsOrLoadingMessage()}
+        <Button onClick={this.toggleModal}>Add Event</Button>
+        <AddEventModal
+          show={this.state.modalIsOpen}
+          toggleModal={this.toggleModal}
+          refreshPage={this.getAllEvents}
+        />
       </AppWrapper>
     );
   }

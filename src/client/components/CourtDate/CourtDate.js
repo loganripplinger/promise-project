@@ -16,6 +16,7 @@ export default class CourtDate extends React.Component {
           iconColor={calendarIcon.color}
           header={headerText}
           now={this.props.now}
+          nowIsInFuture={this.props.nowIsInFuture}
         />
       </div>
     )

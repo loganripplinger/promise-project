@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const AppWrapper = styled.div`
   margin: auto;
   padding: 25px;
-  width: 100%;
   font-size: 1.25em;
   font-family: 'Roboto', sans-serif;
 `
@@ -33,7 +32,7 @@ export const Icon = styled.div`
 
 export const Header = styled.h2`
   margin: 0px;
-  font-size: 1em;
+  font-size: 0.9em;
   width: 100%;
 `
 
@@ -47,7 +46,10 @@ export const Content = styled.div`
 `
 
 export const Message = styled.div`
-  width: 100%;
+  margin-top: 10px;
+  background-color: rgb(241, 244, 246);
+  padding: 15px;
+  font-size: 0.9em;
 `
 
 // remove

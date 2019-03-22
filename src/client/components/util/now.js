@@ -13,7 +13,7 @@ const insertNow = (events) => {
 
   events.forEach((event) => {
     event.now = false
-    console.log(`${prev.datetime}, ${event.datetime}, ${now}`)
+    // console.log(`${prev.datetime}, ${event.datetime}, ${now}`)
 
     if (now > event.datetime && prev.datetime > now) {
       prev.now = true
@@ -22,6 +22,9 @@ const insertNow = (events) => {
   })
 
   // Handle edge case when now is after all events
+  const nowIsInFuture = events.every(event => event.now === false);
+  if (nowIsInFuture) events[0].nowIsInFuture = true;
+  console.log(events)
 }
 
 export default insertNow

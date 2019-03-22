@@ -13,7 +13,7 @@ export const NowLine = styled.div`
   border-bottom: 1px dashed lightgray;
   text-align: left;
   height: .75em;
-  margin-top: 50px;
+  margin-top: 40px;
   margin-bottom: 60px;
 `
 

@@ -16,6 +16,7 @@ export default class Reminder extends React.Component {
           header={headerText}
           body={bodyText}
           now={this.props.now}
+          nowIsInFuture={this.props.nowIsInFuture}
         />
       </div>
     )

@@ -14,6 +14,7 @@ export default class DataUpdated extends React.Component {
           icon={faEdit}
           header={headerText}
           now={this.props.now}
+          nowIsInFuture={this.props.nowIsInFuture}
         />
       </div>
     )

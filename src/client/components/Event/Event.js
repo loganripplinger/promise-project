@@ -12,9 +12,12 @@ export default class Event extends React.Component {
     const header = this.props.header
     const body = this.props.body || null
     const now = this.props.now
-
+    const nowIsInFuture = this.props.nowIsInFuture
+    console.log(nowIsInFuture)
+    
     return (
       <ContainerWrapper>
+        { nowIsInFuture ? <NowLine now={true} /> : null }
         <Container>
           <Time>{datetime}</Time>
           <Icon><FontAwesomeIcon icon={icon} color={iconColor} /></Icon>

@@ -12,6 +12,7 @@ export default class EventFactory extends React.Component {
           event={this.props.event}
           datetime={this.props.event.datetime}
           now={this.props.event.now}
+          nowIsInFuture={this.props.event.nowIsInFuture}
         />
       </div>
     )
