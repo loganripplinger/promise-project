@@ -5,8 +5,13 @@ export const AppWrapper = styled.div`
   padding: 25px;
   width: 100%;
   font-size: 1.25em;
+  font-family: 'Roboto', sans-serif;
 `
 
+export const ContainerWrapper = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
+`
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -17,7 +22,9 @@ export const Container = styled.div`
 `
 
 export const Time = styled.div`
-  width: 150px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: .75em;
+  width: 225px;
 `
 
 export const Icon = styled.div`
@@ -26,6 +33,7 @@ export const Icon = styled.div`
 
 export const Header = styled.h2`
   margin: 0px;
+  font-size: 1em;
   width: 100%;
 `
 

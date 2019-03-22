@@ -26,7 +26,7 @@ const populateDatabase = (database) => {
   const courtDateReminder = generateReminders.oneDayBeforeCourt(person, courtDate1)
   const caseManagerAppointment1 = new CaseManagerAppointment(toUnix(new Date(2019, 1, 27, 9, 30)), false)
   const courtDateCreatedReminder = generateReminders.courtDateConfirmation(toUnix(new Date(2019, 1, 26, 12, 30)), person, courtDate1)
-  const courtDate2 = new CourtDate(toUnix(new Date(2019, 2, 25, 9)), true, '101 Washington St. Oakland')
+  const courtDate2 = new CourtDate(toUnix(new Date(2019, 1, 25, 9)), true, '101 Washington St. Oakland')
   const clientDataUpdated = new DataUpdated(toUnix(new Date(2019, 0, 31, 3, 24)))
   const caseManagerAppointment2 = new CaseManagerAppointment(toUnix(new Date(2019, 0, 15, 2, 30)), true)
 

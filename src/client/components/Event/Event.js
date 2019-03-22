@@ -1,27 +1,33 @@
 import React from 'react';
-import { Container, Time } from '../../styles'
-import CourtDate from '../CourtDate/CourtDate'
-import Reminder from '../Reminder/Reminder'
-import CaseManangerAppointment from '../CaseManagerAppointment/CaseManagerAppointment'
-import DataUpdated from '../DataUpdated/DataUpdated'
+import NowLine from '../NowLine/NowLine'
+import { ContainerWrapper, Container, Header, Time, Icon, Content, Message } from '../../styles'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import timeFormatter from '../util/timeFormatter'
 
 export default class Event extends React.Component {
   render() {
-    // Prop is an event object
-    // Look up prop.type and return the proper event object
-    const eventDict = {
-      'court-date': CourtDate,
-      'reminder': Reminder,
-      'case-manager-appointment': CaseManangerAppointment,
-      'client-data-updated': DataUpdated
-    }
-
-    const Component = eventDict[this.props.event.type];
+    const datetime = timeFormatter(this.props.datetime)
+    const icon = this.props.icon
+    const iconColor = this.props.iconColor || "black"
+    const header = this.props.header
+    const body = this.props.body || null
+    const now = this.props.now
 
     return (
-      <Container>
-        <Component event={this.props.event} />
-      </Container>
+      <ContainerWrapper>
+        <Container>
+          <Time>{datetime}</Time>
+          <Icon><FontAwesomeIcon icon={icon} color={iconColor} /></Icon>
+          <Content>
+            <Header>{header}</Header>
+            { 
+             body ? <Message>{body}</Message>
+                  : null 
+            }
+          </Content>
+        </Container>
+        <NowLine now={now} />
+      </ContainerWrapper>
     )
   }
 }

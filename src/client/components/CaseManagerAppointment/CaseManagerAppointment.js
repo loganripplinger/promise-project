@@ -1,28 +1,23 @@
 import React from 'react';
-import { Container, Header, Time, Icon, Content, Message } from '../../styles'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarTimes } from '@fortawesome/free-regular-svg-icons'
-import { faCalendar } from '@fortawesome/free-regular-svg-icons'
-import { faCalendarCheck } from '@fortawesome/free-regular-svg-icons'
+import Event from '../Event/Event'
+import { Container } from '../../styles'
+import { iconLookup } from '../util/lookup'
 
 export default class CaseManagerAppointment extends React.Component {
-  // this.props.event.type
   render() {
-    const iconLookup = {
-      'true': {icon: faCalendarCheck, color: 'green'},
-      'false': {icon: faCalendarTimes, color: 'red'},
-      'undefined': {icon: faCalendar, color: 'grey'}
-    }
-    const calIcon = iconLookup[this.props.event.keptAppointment]
-
-    const datetime = this.props.event.datetime
+    const calendarIcon = iconLookup[this.props.event.keptAppointment]
+    const headerText = 'Case Manager Appointment'
 
     return (
-      <Container>
-        <Time>{datetime}</Time>
-        <Icon><FontAwesomeIcon icon={calIcon.icon} color={calIcon.color} /></Icon>
-        <Header>Case Manager Appointment</Header>
-      </Container>
+      <div>
+        <Event
+          datetime={this.props.datetime}
+          icon={calendarIcon.icon}
+          iconColor={calendarIcon.color}
+          header={headerText}
+          now={this.props.now}
+        />
+      </div>
     )
   }
 }
